@@ -3,8 +3,8 @@
 // Using the fibonacci technique to solve the problem
 
 let arr = [23,2, 14];
-function howSum(arr, targetSum){
-
+function howSum(arr, targetSum, store = {}){
+    if(targetSum in store) return store[targetSum];
     if(targetSum === 0) return [];
     if(targetSum < 0) return null;
 
@@ -12,10 +12,10 @@ function howSum(arr, targetSum){
 
     for(let x of arr){
         const remainder = targetSum - x;
-        const hos = howSum(arr, remainder);
-        console.log(hos)
+        const hos = howSum(arr, remainder, store);
 
         if( hos !== null){
+
             let val = [...hos,x];
             if(shortestCombo === null || val.length < shortestCombo.length ){
                 shortestCombo = val;
@@ -23,8 +23,10 @@ function howSum(arr, targetSum){
         }
     }
 
+    store[targetSum] =  shortestCombo;
+
     return shortestCombo;
 
 }
 
-console.log(howSum(arr, 14))
+console.log(howSum([1,2,5,25], 100))
