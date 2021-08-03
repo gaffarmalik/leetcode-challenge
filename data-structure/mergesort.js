@@ -11,8 +11,7 @@ function mergeSort(arr){
     let middle = Math.floor(len/2);
     left = arr.slice(0, middle);
     right = arr.slice(middle);  //--> To the End
-    console.log(times, '[',left, right,']')
-
+    
     return merge(mergeSort(left), mergeSort(right));  
 }
 
@@ -21,7 +20,6 @@ function merge(left, right){
     var output = [];
     let leftCount = 0;
     let rightCount = 0;
-    console.log("look up")
     while(leftCount < left.length && rightCount < right.length){
             if(left[leftCount] < right[rightCount]){
                 output.push(left[leftCount]);
