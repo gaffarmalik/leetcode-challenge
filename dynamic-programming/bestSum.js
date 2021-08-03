@@ -2,7 +2,6 @@
 // Find the number of combinations to form 7
 // Using the fibonacci technique to solve the problem
 
-let arr = [23,2, 14];
 function bestSum(arr, targetSum, store = {}){
     if(targetSum in store) return store[targetSum];
     if(targetSum === 0) return [];
@@ -12,7 +11,7 @@ function bestSum(arr, targetSum, store = {}){
 
     for(let x of arr){
         const remainder = targetSum - x;
-        const hos = howSum(arr, remainder, store);
+        const hos = bestSum(arr, remainder, store);
 
         if( hos !== null){
 
@@ -28,5 +27,6 @@ function bestSum(arr, targetSum, store = {}){
     return shortestCombo;
 
 }
+let arr = [23,2, 14];
 
-console.log(howSum([1,2,5,25], 100))
+console.log(bestSum([1,2,5,25], 100))
