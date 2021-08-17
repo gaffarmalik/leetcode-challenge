@@ -10,8 +10,9 @@ for(let i=0; i <= array.length; i++){
         }
     }
 }
+// console.log(array.length)
 
 return array[target];
 }
 
-console.log(howSumTabulation(100, [2,30,50]));
+console.log(howSumTabulation(10, [2,30,50]));
