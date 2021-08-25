@@ -8,7 +8,8 @@ const hash= {
  var lcs = function(t1, t2, m,n) {
     // Create dp table
    if(t1 ==='' || t2 === '') return 0;
-   if(hash[m+n]) return hash[m+n];
+   if(hash[m+n]) return hash[m+n]; //This line boosted computation time. Recursions are slower for languages like Javascript
+   
    else if(t1[m - 1] === t2[n -1]){
        let left = lcs(t1.slice(0, m-1), t2.slice(0, n-1), m-1, n-1 );
        let right = lcs(t1.slice(0, m-1), t2.slice(0, n-1), m-1, n-1 );
@@ -25,8 +26,8 @@ const hash= {
 };
     
 
-var x = 'hello from london sample';
-var y = 'londons';
+var x = 'hello from london sample'.repeat(10);
+var y = 'londons'.repeat(10);
 let m  = x.length;
 let n = y.length;
 
