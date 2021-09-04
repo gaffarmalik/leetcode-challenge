@@ -1,3 +1,5 @@
+//Is this a permutation of a palindrome?
+
 function palindromePerm(str){
     let string = str.toLowerCase();
     let hash ={};
@@ -16,10 +18,11 @@ function palindromePerm(str){
             odd++
         }
     }
-
-    if(odd === 0 && length %2 ===0) return true;
-    else if(odd === 1 && length%2 >= 1) return true;
-    else return false;
+    console.log(odd)
+    return odd <= 1;
+    // if(odd === 0 && length %2 ===0) return true;
+    // else if(odd === 1 && length%2 >= 1) return true;
+    // else return false;
 
 }
 
