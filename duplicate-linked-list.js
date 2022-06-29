@@ -1,4 +1,4 @@
-const arr = [1,1,2, 1,10, 3, 5];
+const arr = [3,5,8, 5,10, 2, 1];
 
 
 function NodeV(value, next) {
@@ -28,46 +28,37 @@ function createList(arr) {
 }
 
 
-// function removeDuplicates(head) {
-//     // Hash to store seen values
-//     var set = new Set();
-//     let previous = null;
 
-//     while(head !== null){
-//         if(set.has(head.value)){
-//             previous.next = head.next;
-//         }
-//         else{
-//             set.add(head.value);
-//             previous = head;
+function partitionAround(node, partition){
+var ls = new NodeV(),
+    le = ls,
+    gs = new NodeV(),
+    ge = gs;
 
-//         }   
-//         head = head.next;
-
-//     }
-
-    
-// }
-
-function findTillLast(node,position){
-let counter =1;
-let arr =[];
 while(node !== null){
-    if(counter>=position){
-        arr.push(node.value);
+    if(node.value < partition){
+        le.next = node;
+        le = le.next;
     }
+    else if(node.value >= partition){
+        ge.next = node;
+        ge = ge.next;
+    }
+
     node = node.next;
-    counter++;
+
 }
+  
+    ge.next = null;
+    le.next = gs.next;
+    ls = ls.next
 
-console.log(arr)
+
+
 }
-
-
 
 
 var node  = createList(arr);
-
-console.log(findTillLast(node, 3));
-console.log(node);
+partitionAround(node, 5)
+console.log(node.next.next.next.next);
 
