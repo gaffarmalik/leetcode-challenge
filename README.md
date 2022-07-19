@@ -1,2 +1,2 @@
 # leetcode-challenge
-My Leetcode algo progress history stays here
+My Leetcode algo practice activities are here.
