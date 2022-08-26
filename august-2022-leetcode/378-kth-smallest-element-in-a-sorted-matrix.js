@@ -62,3 +62,43 @@ var kthSmallest = function(matrix, k) {
 	return count
 	}
 };
+
+
+//OPTION 3
+
+/**
+ * @param {number[][]} matrix
+ * @param {number} k
+ * @return {number}
+ */
+ var kthSmallest = function(matrix, k) {
+    let len = matrix.length;
+    let left = matrix[0][0];
+    let right = matrix[len - 1][len - 1];
+    let ans = -1;
+    let mid = 0;
+    while(left <= right){
+       let mid = Math.ceil((right + left)/2);
+
+        if(counter(mid, matrix) >= k){
+            ans = mid;
+            right = mid - 1;
+        }else{
+            left = mid + 1;
+        }
+    }
+    
+    return ans;
+};
+
+var counter = function(number, matrix){
+    let count = 0;
+    for(let i=0; i < matrix.length; i++){
+        for(let j=0; j< matrix.length; j++){
+            if(matrix[i][j] <= number) count++;
+        }
+    }
+    
+    return count;
+    
+}

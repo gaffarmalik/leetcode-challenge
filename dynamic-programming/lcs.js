@@ -1,9 +1,7 @@
 /**
  * Using Memoization with Recursion. A bit optimized;
  */
-const hash= {
-
-}
+const hash= {}
 
  var lcs = function(t1, t2, m,n) {
     // Create dp table
