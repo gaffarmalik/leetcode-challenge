@@ -3,7 +3,7 @@
  * @return {number}
  */
 /**
- * explantion:
+ * EXPLANATION:
  * Our goal is simply to find the lowest value to sell at any point, while we move thru the prices
  * if price x is lesser than our  lowest value(preferred buying point), we update min_value;
  * If we find a deal where diff between price[x] and min_value is greater than current max_profit, then 
