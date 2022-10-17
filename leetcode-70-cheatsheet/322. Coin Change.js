@@ -32,17 +32,29 @@ const recursor = (coins, remainder,total ) =>{
  * 
  */
 
+/**
+ * @param {number[]} coins
+ * @param {number} amount
+ * @return {number}
+ */
  var coinChange = function(coins, amount) {
     //easy
-    const dp = new Array(amount+1).fill(Infinity);
-    dp[0] = 0;
+    const dp = new Array(amount + 1).fill(Infinity);
+    dp[0] = 0; //for priming/starter
     
     for(let coin of coins){
-        for(let i = 0; i < dp.length; i++){
+        for(let i=0; i< dp.length; i++){
             if(coin <= i){
-                let rem = dp[(i - coin)] + 1;
-                dp[i]  = Math.min(dp[i], rem)
+                const rem = (i - coin); // the number involved
+                //the number was solved previously
+                dp[i] = Math.min(dp[i], dp[rem]+1);
             }
         }
+    
+    
     }
-}
+    
+    // const result = ;
+    console.log(dp)
+    return dp[dp.length-1] === Infinity ? -1 : dp[dp.length-1];
+    };
